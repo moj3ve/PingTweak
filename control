@@ -1,0 +1,9 @@
+Package: me.justnaaa
+Name: PingTweak
+Version: 0.0.1
+Depends: mobilesubstrate, preferenceloader
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Juliette
+Author: Juliette
+Section: Tweaks
