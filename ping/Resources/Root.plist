@@ -52,20 +52,20 @@
 			<key>action</key>
 			<string>setColours</string>
 		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSGroupCell</string>
-			<key>label</key>
-			<string>Per app setting</string>
-		</dict>
-		<dict>
-			<key>cell</key>
-			<string>PSButtonCell</string>
-			<key>label</key>
-			<string>Set app title</string>
-			<key>action</key>
-			<string>setTitle</string>
-		</dict>
+<!--		<dict>-->
+<!--			<key>cell</key>-->
+<!--			<string>PSGroupCell</string>-->
+<!--			<key>label</key>-->
+<!--			<string>Per app setting</string>-->
+<!--		</dict>-->
+<!--		<dict>-->
+<!--			<key>cell</key>-->
+<!--			<string>PSButtonCell</string>-->
+<!--			<key>label</key>-->
+<!--			<string>Set app title</string>-->
+<!--			<key>action</key>-->
+<!--			<string>setTitle</string>-->
+<!--		</dict>-->
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>

@@ -25,6 +25,7 @@
     }
 
     - (void)respring {
+    // Thanks to Litten for the respring
         NSTask *t = [[NSTask alloc] init];
         [t setLaunchPath:@"/usr/bin/killall"];
         [t setArguments:[NSArray arrayWithObjects:@"backboardd", nil]];
@@ -127,7 +128,7 @@
             NSString *title = alertController.textFields[0].text;
             NSDictionary *settings = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist"] ?: [@{} mutableCopy];
 
-            [settings setValue:title forKey:@"notificationsText"];
+            [settings setValue:title forKey:@"f"];
             [settings writeToFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist" atomically:YES];
 
         }];
@@ -137,6 +138,7 @@
 
         [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
     }
+
     - (void) marginNotification {
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Set notification margin" message:@"" preferredStyle:UIAlertControllerStyleAlert];
 
