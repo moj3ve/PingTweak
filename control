@@ -3,7 +3,7 @@ Name: PingTweak
 Version: 0.0.1
 Depends: mobilesubstrate, preferenceloader
 Architecture: iphoneos-arm
-Description: An awesome MobileSubstrate tweak!
+Description: A simple tweak to edit your notifications!
 Maintainer: Juliette
 Author: Juliette
 Section: Tweaks

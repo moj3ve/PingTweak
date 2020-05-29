@@ -24,25 +24,19 @@
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSEditTextCell</string>
-			<key>placeholder</key>
-			<string>Notifications text</string>
-			<key>defaults</key>
-			<string>me.justnaaa.Pingpref</string>
-			<key>key</key>
-			<string>notificationsText</string>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Set notification list header</string>
+			<key>action</key>
+			<string>setTitlee</string>
 		</dict>
 		<dict>
 			<key>cell</key>
-			<string>PSEditTextCell</string>
-			<key>placeholder</key>
-			<string>Notifications radius</string>
-			<key>defaults</key>
-			<string>me.justnaaa.Pingpref</string>
-			<key>keyboard</key>
-			<key>phone</key>
-			<key>key</key>
-			<string>notificationRadius</string>
+			<string>PSButtonCell</string>
+			<key>label</key>
+			<string>Set notification radius</string>
+			<key>action</key>
+			<string>marginNotification</string>
 		</dict>
 		<dict>
 			<key>cell</key>

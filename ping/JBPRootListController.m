@@ -64,50 +64,104 @@
 
         [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
     }
-- (void)setColours {
-    // Creating alert with two text fields where user can enter the app name they want to change and the replacement
-    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Set colour" message:@"255 RGB colours" preferredStyle:UIAlertControllerStyleAlert];
+    - (void)setColours {
+        // Creating alert with two text fields where user can enter the app name they want to change and the replacement
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Set colour" message:@"255 RGB colours" preferredStyle:UIAlertControllerStyleAlert];
 
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"R";
-        textField.secureTextEntry = NO;
-        [textField setKeyboardType:UIKeyboardTypeNumberPad];
-    }];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"G";
-        textField.secureTextEntry = NO;
-        [textField setKeyboardType:UIKeyboardTypeNumberPad];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"R";
+            textField.secureTextEntry = NO;
+            [textField setKeyboardType:UIKeyboardTypeNumberPad];
+        }];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"G";
+            textField.secureTextEntry = NO;
+            [textField setKeyboardType:UIKeyboardTypeNumberPad];
 
-    }];
-    [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
-        textField.placeholder = @"B";
-        textField.secureTextEntry = NO;
-        [textField setKeyboardType:UIKeyboardTypeNumberPad];
+        }];
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"B";
+            textField.secureTextEntry = NO;
+            [textField setKeyboardType:UIKeyboardTypeNumberPad];
 
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        NSLog(@"Nothing");
-    }];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            NSLog(@"Nothing");
+        }];
 
-    UIAlertAction *set = [UIAlertAction actionWithTitle:@"Set" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        // Saving
-        NSString *r = alertController.textFields[0].text;
-        NSString *g = alertController.textFields[1].text;
-        NSString *b = alertController.textFields[2].text;
+        UIAlertAction *set = [UIAlertAction actionWithTitle:@"Set" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            // Saving
+            NSString *r = alertController.textFields[0].text;
+            NSString *g = alertController.textFields[1].text;
+            NSString *b = alertController.textFields[2].text;
 
-        NSDictionary *settings = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist"] ?: [@{} mutableCopy];
+            NSDictionary *settings = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist"] ?: [@{} mutableCopy];
 
-        [settings setValue:r forKey:@"redAmount"];
-        [settings setValue:g forKey:@"greenAmount"];
-        [settings setValue:b forKey:@"blueAmount"];
+            [settings setValue:r forKey:@"redAmount"];
+            [settings setValue:g forKey:@"greenAmount"];
+            [settings setValue:b forKey:@"blueAmount"];
 
-        [settings writeToFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist" atomically:YES];
+            [settings writeToFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist" atomically:YES];
 
-    }];
+        }];
 
-    [alertController addAction:cancel];
-    [alertController addAction:set];
+        [alertController addAction:cancel];
+        [alertController addAction:set];
 
-    [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
-}
+        [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
+    }
+
+    -(void) setTitlee {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Set notification list title" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"Title";
+            textField.secureTextEntry = NO;
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            NSLog(@"Nothing");
+        }];
+
+        UIAlertAction *set = [UIAlertAction actionWithTitle:@"Set" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            // Saving
+            NSString *title = alertController.textFields[0].text;
+            NSDictionary *settings = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist"] ?: [@{} mutableCopy];
+
+            [settings setValue:title forKey:@"notificationsText"];
+            [settings writeToFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist" atomically:YES];
+
+        }];
+
+        [alertController addAction:cancel];
+        [alertController addAction:set];
+
+        [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
+    }
+    - (void) marginNotification {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Set notification margin" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+
+        [alertController addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+            textField.placeholder = @"Title";
+            textField.secureTextEntry = NO;
+            [textField setKeyboardType:UIKeyboardTypeNumberPad];
+        }];
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            NSLog(@"Nothing");
+        }];
+
+        UIAlertAction *set = [UIAlertAction actionWithTitle:@"Set" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            // Saving
+            NSString *title = alertController.textFields[0].text;
+            NSDictionary *settings = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist"] ?: [@{} mutableCopy];
+
+            [settings setValue:title forKey:@"notificationRadius"];
+            [settings writeToFile:@"/var/mobile/Library/Preferences/me.justnaaa.Pingpref.plist" atomically:YES];
+
+        }];
+
+        [alertController addAction:cancel];
+        [alertController addAction:set];
+
+        [[[UIApplication sharedApplication] keyWindow].rootViewController presentViewController:alertController animated:YES completion:nil];
+    }
 @end
